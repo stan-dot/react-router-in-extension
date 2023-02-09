@@ -1,0 +1,26 @@
+{
+    "name": "Chrome React Extension testing of react router",
+    "description": "using react router",
+    "version": "1.0",
+    "manifest_version": 3,
+    "options_page": "index.html",
+    "incognito": "split",
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab",
+        "bookmarks",
+        "scripting"
+    ],
+    "short_name": "react-router-test",
+    "author": "stan-dot",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Open the popup"
+    },
+    "icons": {
+        "16": "logo192.png",
+        "48": "logo192.png",
+        "128": "logo192.png"
+    }
+}
