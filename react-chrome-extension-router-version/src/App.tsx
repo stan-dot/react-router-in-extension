@@ -1,29 +1,27 @@
-import React from "react";
+import { useEffect } from "react";
 import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+  getComponentStack, getCurrent, Router
+} from 'react-chrome-extension-router';
 import "./index.css";
-import Contact from "./routes/contact";
-import ErrorPage from "./routes/Error";
-import Root from "./routes/r1";
+import { One } from "./One";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />
-  },
-
-  {
-    path: "contacts/:contactId",
-    element: <Contact />,
-  }
-]);
 
 export default function App() {
-
-  return <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  useEffect(() => {
+    const { component, props } = getCurrent();
+    console.log(
+      component
+        ? `There is a component on the stack! ${component} with ${props}`
+        : `The current stack is empty so Router's direct children will be rendered`
+    );
+    const components = getComponentStack();
+    console.log(`The stack has ${components.length} components on the stack`);
+  });
+  return (
+    <Router>
+      <One />
+    </Router>
+  );
 }
+
+
