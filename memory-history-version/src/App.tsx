@@ -1,10 +1,10 @@
-import { createBrowserHistory } from "history";
+import { createMemoryHistory } from "history";
 import "./index.css";
 
-export default function App() {
-  let history = createBrowserHistory();
-  let location = history.location;
+let history = createMemoryHistory();
+let location = history.location;
 
+export default function App() {
   return <div>
     <h2>hello world memeory history version</h2>
     <nav style={{ display: 'flex', flexDirection: 'column' }}>
