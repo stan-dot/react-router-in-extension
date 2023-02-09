@@ -1,14 +1,8 @@
 
-
-
 trying to do routes
 
 
 https://reactrouter.com/en/main/start/tutorial
-
-
-
-
 
 # should do all 3 and compare, create a blog post
 

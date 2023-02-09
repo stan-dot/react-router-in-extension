@@ -1,6 +1,6 @@
 {
-    "name": "Chrome React Extension testing of react router",
-    "description": "using react router",
+    "name": "version that uses MemoryRouter",
+    "description": "version that uses MemoryRouter",
     "version": "1.0",
     "manifest_version": 3,
     "options_page": "index.html",

@@ -1,29 +1,20 @@
-import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
 import "./index.css";
-import Contact from "./routes/contact";
-import ErrorPage from "./routes/Error";
-import Root from "./routes/r1";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />
-  },
-
-  {
-    path: "contacts/:contactId",
-    element: <Contact />,
-  }
-]);
+import { MemoryRouter, Route, Routes } from "react-router-dom";
+import Contact from "./routes/contacts";
+import Root from "./routes/root";
+import Test from "./routes/Test";
 
 export default function App() {
 
-  return <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  return <div>
+    <MemoryRouter initialEntries={['/', '/contacts', '/test']} initialIndex={0}>
+      {/* <MemoryRouter initialEntries={['/']}> */}
+      <Routes>
+        <Route path='/' element={<Root />} />
+        <Route path="/contacts" element={<Contact />} />
+        <Route path="/test" element={<Test />} />
+      </Routes>
+    </MemoryRouter>
+  </div>
 }

@@ -1,29 +1,21 @@
-import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserHistory } from "history";
 import "./index.css";
-import Contact from "./routes/contact";
-import ErrorPage from "./routes/Error";
-import Root from "./routes/r1";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />
-  },
-
-  {
-    path: "contacts/:contactId",
-    element: <Contact />,
-  }
-]);
 
 export default function App() {
+  let history = createBrowserHistory();
+  let location = history.location;
 
-  return <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  return <div>
+    <h2>hello world memeory history version</h2>
+    <nav style={{ display: 'flex', flexDirection: 'column' }}>
+      <a href="/meme">goto meme</a>
+      <a href="/">goto home</a>
+    </nav>
+    <div style={{ display: location.pathname === '/meme' ? 'block' : 'none' }}>
+      meme page
+    </div>
+    <div style={{ display: location.pathname === '/' ? 'block' : 'none' }}>
+      home page
+    </div>
+  </div>
 }
